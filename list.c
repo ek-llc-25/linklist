@@ -31,4 +31,22 @@ void push_list(struct list_t *list, int value) {
 
 int pop_list(struct list_t *list) {
     // TODO: Lav mig!
+    // - Loop over listen til det sidste kæde-led,
+    // - Fjern det sidste kæde-led
+    // - Returnér værdien i leddet
+    struct list_t *previous = list;
+    struct list_t *current = list->next;
+    while (current->next != NULL) {
+        current = current->next;
+        previous = previous->next;
+    }
+
+    // Deallokere kæde-leddet:
+    int value = current->value;
+    free(current);
+
+    // Fjerne pointeren til kæde-leddet:
+    previous->next = NULL;
+
+    return value;
 }

@@ -25,6 +25,9 @@ int main(void) {
     int wat = pop_list(foo);
     printf("wat er %d\n", wat);
 
+    int igen = pop_list(foo);
+    printf("igen er %d\n", igen);
+
     // Heap-allokeret liste kalder malloc()
 
     return 0;
